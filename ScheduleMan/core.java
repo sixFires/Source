@@ -1,5 +1,5 @@
-package SM;
-
+package ScheduleMan;
 
 public class core{
+
 }
