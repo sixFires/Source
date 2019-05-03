@@ -1,37 +1,120 @@
 // Task 객체를 정의하는 Class
-// TODO : 연, 월, 일, hieranchy 에 대해 get/set 메소드 만들기 (입력값을 검증해야 하기 때문)
-// 솔직히 시간 별로 없고 주의만 한다면 안만들어도 될수도?? 그냥 싹다 public으로 해도 될듯.
+
 
 public class Task {
     int id;
     String task_name;
     String description;
-    int start_year;
-    int start_month;
-    int start_day;
-    int end_year;
-    int end_month;
-    int end_day;
+    private int start_year;
+    private int start_month;
+    private int start_day;
+    private int end_year;
+    private int end_month;
+    private int end_day;
     private states state;
-    private int hierachy;
+    private int hierarchy;
 
-    private enum states {Todo, Doing, Done}
+    private enum states {TODO, DOING, DONE}
+
+
+    public int getStartYear() {
+        return start_year;
+    }
+
+    public void setStartYear(int start_year) {      // // 이론상 모든 정수값 가능하므로 검증 불필요
+        this.start_year = start_year;
+    }
+
+    public int getStartMonth() {
+        return start_month;
+    }
+
+    public void setStartMonth(int start_month) {
+        if(0<start_month && start_month<=12){
+            this.start_month = start_month;
+        }
+        else{
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
+        }
+    }
+
+    public int getStartDay() {
+        return start_day;
+    }
+
+    public void setStartDay(int start_day) {
+        if(0<start_day && start_day<=12){
+            this.start_day = start_day;
+        }
+        else{
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
+        }
+    }
+
+    public int getEndYear() {
+        return end_year;
+    }
+
+    public void setEndYear(int end_year) {
+        this.end_year = end_year;
+    }
+
+    public int getEndMonth() {
+        return end_month;
+    }
+
+    public void setEndMonth(int end_month) {
+        if(0<end_month && end_month<=31){
+            this.end_month = end_month;
+        }
+        else{
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
+        }
+    }
+
+    public int getEndDay() {
+        return end_day;
+    }
+
+    public void setEndDay(int end_day) {
+        if(0<end_day && end_day<=31){
+            this.end_day = end_day;
+        }
+        else{
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
+        }
+    }
+
+    public int getHierarchy() {
+        return hierarchy;
+    }
+
+    public void setHierarchy(int hierarchy) {
+        if(0<= hierarchy && hierarchy <=100){
+            this.hierarchy = hierarchy;
+        }
+        else{
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
+        }
+    }
+
 
     public boolean setState(String input) {
-        states inputState;
+        states input_state;
         try {
-            inputState = states.valueOf(input);
+            input_state = states.valueOf(input);
         } catch (java.lang.IllegalArgumentException e) {
             return false;      // states에 저장된 정해진 문자열을 쓰지 않을 시 Error 발생 알림.
         }
 
-        this.state = inputState;
+        this.state = input_state;
         return true; // 정상 작동 알림
     }
 
     public states getState(){
         return this.state;
     }
+
 
 
 
