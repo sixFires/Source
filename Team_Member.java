@@ -3,5 +3,5 @@ public class Team_Member {
     String name;
     String phone;
     String email;
-    Task assigned_task;
+    Task[] assigned_task;
 }

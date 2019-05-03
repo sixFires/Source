@@ -1,10 +1,10 @@
 // Task 객체를 정의하는 Class
-
+// Written by Song Jun ho(RE-A).
 
 public class Task {
-    int id;
-    String task_name;
-    String description;
+    private int id;
+    private String task_name;
+    private String description;
     private int start_year;
     private int start_month;
     private int start_day;
@@ -14,8 +14,45 @@ public class Task {
     private states state;
     private int hierarchy;
 
+    public Task(int id, String task_name, String description, int start_year, int start_month, int start_day, int end_year, int end_month, int end_day, String state, int hierarchy) {
+        this.id = id;
+        this.task_name = task_name;
+        this.description = description;
+        this.start_year = start_year;
+        this.start_month = start_month;
+        this.start_day = start_day;
+        this.end_year = end_year;
+        this.end_month = end_month;
+        this.end_day = end_day;
+        this.state = states.valueOf(state);
+        this.hierarchy = hierarchy;
+    }
+
+    public String getTaskName() {
+        return task_name;
+    }
+
+    public void setTaskName(String task_name) {
+        this.task_name = task_name;
+    }
+
     private enum states {TODO, DOING, DONE}
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getStartYear() {
         return start_year;
@@ -99,16 +136,14 @@ public class Task {
     }
 
 
-    public boolean setState(String input) {
-        states input_state;
+    public void setState(String input) {
+        states input_state = null;
         try {
             input_state = states.valueOf(input);
         } catch (java.lang.IllegalArgumentException e) {
-            return false;      // states에 저장된 정해진 문자열을 쓰지 않을 시 Error 발생 알림.
+            System.out.println("입력값 오류. 다시 한번 확인해주세요");
         }
-
         this.state = input_state;
-        return true; // 정상 작동 알림
     }
 
     public states getState(){
@@ -118,19 +153,19 @@ public class Task {
 
 
 
-// 디버깅용 main 코드
-    public static void main(String args[]) {
-        Task a = new Task();
-        a.task_name = "hello world!";
-        System.out.println(a.task_name);
+// 디버깅용 main 코드. 필요할 시 주석 제거하고 사용하면 됨.
+/*    public static void main(String args[]) {
+        Task a = new Task(1,"task1","sample",2008,5,12,2008,5,20,"DONE",1);
+        System.out.println(a.getTaskName());
+        System.out.println(a.getState());*/
 
-        if(a.setState("sds")){           // 이 곳에 값을 넣어서 확인해 봅시다.
+/*        if(a.setState("sds")){           // 이 곳에 값을 넣어서 확인해 봅시다.
             System.out.println(a.getState());
         }
         else{
             System.out.println("입력 오류");
-        }
-    }
+        }*/
+
 }
 
 
