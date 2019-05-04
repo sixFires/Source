@@ -1,4 +1,4 @@
-// Task 객체를 정의하는 Class
+package DataClass;// DataClass.Task 객체를 정의하는 Class
 // Written by Song Jun ho(RE-A).
 
 public class Task {
@@ -155,8 +155,8 @@ public class Task {
 
 // 디버깅용 main 코드. 필요할 시 주석 제거하고 사용하면 됨.
 /*    public static void main(String args[]) {
-        Task a = new Task(1,"task1","sample",2008,5,12,2008,5,20,"DONE",1);
-        System.out.println(a.getTaskName());
+        DataClass.Task a = new DataClass.Task(1,"task1","sample",2008,5,12,2008,5,20,"DONE",1);
+        System.out.println(a.gettaskName());
         System.out.println(a.getState());*/
 
 /*        if(a.setState("sds")){           // 이 곳에 값을 넣어서 확인해 봅시다.
