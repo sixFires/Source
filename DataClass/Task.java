@@ -1,5 +1,9 @@
+
+
 package DataClass;// DataClass.Task 객체를 정의하는 Class
 // Written by Song Jun ho(RE-A).
+
+import java.util.HashMap;
 
 public class Task {
     private int id;
@@ -28,6 +32,26 @@ public class Task {
         this.hierarchy = hierarchy;
     }
 
+    public Task(HashMap<String, String> input_hashmap){
+    	try{
+	    	this.id = Integer.parseInt(input_hashmap.get("id"));
+	    	this.task_name = input_hashmap.get("task_name");
+	    	this.description = input_hashmap.get("description");
+	    	this.start_year = Integer.parseInt(input_hashmap.get("start_year"));
+	        this.start_month = Integer.parseInt(input_hashmap.get("start_month"));
+	        this.start_day = Integer.parseInt(input_hashmap.get("start_day"));
+	        this.end_year = Integer.parseInt(input_hashmap.get("end_year"));
+	        this.end_month = Integer.parseInt(input_hashmap.get("end_month"));
+	        this.end_day = Integer.parseInt(input_hashmap.get("end_day"));
+	        this.state = state.valueOf(input_hashmap.get("state"));
+	        this.hierarchy = Integer.parseInt(input_hashmap.get("hierarchy"));
+    	} catch(java.lang.NullPointerException e){
+    		System.out.println("Null Pointer Exception Occured.");
+    	}
+    }
+    
+    
+    
     public String getTaskName() {
         return task_name;
     }
